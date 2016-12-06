@@ -1,12 +1,13 @@
 <html>
 <head>
-  <title>Greenville Guest Wi-Fi Map</title>
-  <meta name="description" content="A map of guest wi-fi in Greenville, SC. Buy a sandwich, use the Wi-Fi, support these places."/>
+  <title>Greenville Historical Markers Map</title>
+  <meta name="description" content="A map of Historical Markers Greenville, SC."/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
   <link rel="stylesheet" href="./map.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=bA5WISoAPsk5r0GJ3hHGTkAMFEskFOA2"></script>
+  <!--<script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=bA5WISoAPsk5r0GJ3hHGTkAMFEskFOA2"></script>-->
+  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=Atv9lY8GulJ8iga3XhHUtXzY5AY44f7J"></script>
 
 </head>
 <body>
@@ -19,7 +20,7 @@
     function onEachFeature(feature, layer) {
       // does this feature have a property named popupContent?
       if (feature.properties && feature.properties.title) {
-      	var popuphtml = "<strong>" + feature.properties.title + "</strong><ul><li>Notes: " + feature.properties.notes + "</li><li>Property 3: " + feature.properties.property3 + "</li></ul>";
+      	var popuphtml = "<strong>" + feature.properties.title + "</strong><ul><li>Notes: " + feature.properties.notes + "</li><li>Marker ID: " + feature.properties.property3 + "</li></ul>";
         layer.bindPopup(popuphtml);
       }
     }
@@ -48,7 +49,7 @@
         'Hybrid': MQ.hybridLayer(),
         'Satellite': MQ.satelliteLayer(),
         'Dark': MQ.darkLayer(),
-            'Light': MQ.lightLayer()
+        'Light': MQ.lightLayer()
       }).addTo(map);
 
 //      map.locate({setView: true, maxZoom: 16});
